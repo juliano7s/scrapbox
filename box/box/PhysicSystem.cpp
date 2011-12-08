@@ -40,10 +40,10 @@ void PhysicSystem::calcBoxPositions()
 			}				
 		}
 
-		if (b1.getY() <= this->world.getY())
+		if (b1.bottom() <= this->world.getY())
 			collided = true;
 
-		if (b1.getY() + b1.getSide() >= this->world.getHeight())
+		if (b1.top() >= this->world.getY() + this->world.getHeight())
 			collided = true;
 		
 		if (collided) {
@@ -107,6 +107,47 @@ void PhysicSystem::dropDraggedBox() {
 void PhysicSystem::dragBox(Box *box) {
 	if (draggedBox == NULL) {
 		draggedBox = box;
+	}
+}
+
+void PhysicSystem::moveDraggedBox(Box *box, float x, float y) {
+	
+	std::vector<Box> &boxList = this->world.getBoxList();
+	
+	bool collided = false;
+
+	std::vector<Box>::iterator it2;
+
+	for (it2 = boxList.begin(); it2 != boxList.end(); it2++) {
+		Box& b2 = *it2;
+		if (box != &b2) {
+			collided = checkCollision(*box,b2);
+		}
+		
+		if (collided) {
+			break;
+		}	
+	}				
+		
+	if (box->bottom() <= this->world.getY())
+		collided = true;
+	
+	if (box->top() >= this->world.getY() + this->world.getHeight())
+		collided = true;
+
+	if (box->left() <= this->world.getX())
+		collided = true;
+
+	if (box->right() >= this->world.getX() + this->world.getWidth())
+		collided = true;
+		
+	if (collided) {
+		//b1.setXY(oldx, oldy);
+		//b1.invertDirection();
+		box->stop();
+		collided = false;
+	} else {
+		box->setXY(x, y);
 	}
 }
 

@@ -13,6 +13,7 @@ public:
 	void dropDraggedBox();
 	void dragBox(Box *box);
 	Box* getDraggedBox();
+	void moveDraggedBox(Box *box, float x, float y);
 private:
 	float gravity;
 	World& world;

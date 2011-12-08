@@ -62,6 +62,12 @@ void handleMouse(int button, int state, int x, int y) {
 			}
 		}
 	}
+	if (button == GLUT_RIGHT_BUTTON) {
+		if (state == GLUT_UP) { //released button
+			Box newBox(vpX, vpY, 0.5f);
+			w.addBox(newBox);
+		}
+	}
 	
 }
 
@@ -75,7 +81,7 @@ void handleMouseMotion(int x, int y) {
 
 	Box *draggedBox = physys.getDraggedBox();
 	if (draggedBox != NULL) {
-		draggedBox->setXY(vpX, vpY);
+		physys.moveDraggedBox(draggedBox, vpX, vpY);
 	}
 }
 
