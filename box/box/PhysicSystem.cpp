@@ -121,7 +121,7 @@ void PhysicSystem::moveDraggedBox(Box *box, float x, float y) {
 	for (it2 = boxList.begin(); it2 != boxList.end(); it2++) {
 		Box& b2 = *it2;
 		if (box != &b2) {
-			collided = checkCollision(*box,b2);
+			//collided = checkCollision(*box,b2);
 		}
 		
 		if (collided) {
@@ -129,8 +129,8 @@ void PhysicSystem::moveDraggedBox(Box *box, float x, float y) {
 		}	
 	}				
 		
-	if (box->bottom() <= this->world.getY())
-		collided = true;
+	//if (box->bottom() <= this->world.getY())
+		//collided = true;
 	
 	if (box->top() >= this->world.getY() + this->world.getHeight())
 		collided = true;
