@@ -25,12 +25,12 @@ public:
 	virtual void OnExpose() { }
 	virtual void OnExit() { }
 	virtual void OnUser(Uint8 type, int code, void* data1, void* data2) { }
-	virtual void OnLButtonDown(int mX, int mY) { }
-	virtual void OnLButtonUp(int mX, int mY) { }
-	virtual void OnRButtonDown(int mX, int mY) { }
-	virtual void OnRButtonUp(int mX, int mY) { }
-	virtual void OnMButtonDown(int mX, int mY) { }
-	virtual void OnMButtonUp(int mX, int mY) { }
+	virtual void OnLButtonDown(int x, int y) { }
+	virtual void OnLButtonUp(int x, int y) { }
+	virtual void OnRButtonDown(int x, int y) { }
+	virtual void OnRButtonUp(int x, int y) { }
+	virtual void OnMButtonDown(int x, int y) { }
+	virtual void OnMButtonUp(int x, int y) { }
 
 private:
 

@@ -18,6 +18,7 @@ class BoxysWorld
         int Width() const { return mWidth; }
         int Height() const { return mHeight; }
         void AddBeing(BoxysBeing &being);
+        void AddBeing(BoxysBeing *being);
         std::vector<BoxysBeing*>& BeingsList() { return beingsList; }
 
     private:

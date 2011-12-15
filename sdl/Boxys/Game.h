@@ -14,6 +14,8 @@ class Game
     public:
         static const int WINDOW_WIDTH = 640;
         static const int WINDOW_HEIGHT = 480;
+        static const int VIEWPORT_WIDTH = WINDOW_WIDTH;
+        static const int VIEWPORT_HEIGHT = WINDOW_HEIGHT;
         
 	public:
 		Game(void);
@@ -27,11 +29,11 @@ class Game
 
 		void	Quit();
         void    CreateWorld();
+        void    CreateWorld(const char* mapFile);
 
 
 	private:
 		bool				mIsRunning;
-		SDL_Surface			*mpSurfaceDisplay;
 		BoxysEventHandler	mEventHandler;
 		PhyEngine			mPhyEngine;
 		RenderEngine		mRenderEngine;

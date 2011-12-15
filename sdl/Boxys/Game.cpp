@@ -6,10 +6,10 @@
 Game::Game(void) :
 	mEventHandler(),
 	mPhyEngine(),
-    mRenderEngine(Game::WINDOW_WIDTH, Game::WINDOW_HEIGHT),
+    mRenderEngine(Game::WINDOW_WIDTH, Game::WINDOW_HEIGHT,
+        Game::VIEWPORT_WIDTH, Game::VIEWPORT_HEIGHT),
     mWorld()
 {
-	mpSurfaceDisplay = NULL;
 	mIsRunning = false;
 }
 
@@ -58,7 +58,13 @@ void Game::Quit()
 
 void Game::CreateWorld()
 {
-    mWorld.SetXY(1.0f, 1.0f);
-    mWorld.SetDimensions(200,400);
+    mWorld.SetXY(10.0f, 10.0f);
+    mWorld.SetDimensions(600,400);
+
+    /* Needs to be freed */
+    BoxysBeing *b = new BoxysBeing(55.0f,70.0f);
+    b->SetDimensions(20,20);
+
+    mWorld.AddBeing(b);
 }
 

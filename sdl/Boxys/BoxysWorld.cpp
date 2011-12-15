@@ -34,3 +34,8 @@ void BoxysWorld::AddBeing(BoxysBeing &being)
 {
     beingsList.push_back(&being);
 }
+
+void BoxysWorld::AddBeing(BoxysBeing *being)
+{
+    beingsList.push_back(being);
+}

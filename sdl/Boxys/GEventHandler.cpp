@@ -89,7 +89,28 @@ void GEventHandler::OnEvent(SDL_Event *event)
 				}
 				break;
 			}
-
+        case SDL_MOUSEBUTTONDOWN:
+			{
+				switch(event->button.button)
+				{
+					case SDL_BUTTON_LEFT:
+						{
+							OnLButtonDown(event->button.x,event->button.y);
+							break;
+						}
+					case SDL_BUTTON_RIGHT:
+						{
+							OnRButtonDown(event->button.x,event->button.y);
+							break;
+						}
+					case SDL_BUTTON_MIDDLE:
+						{
+							OnMButtonDown(event->button.x,event->button.y);
+							break;
+						}
+				}
+				break;
+			}
 		case SDL_QUIT:
 			{
 				OnExit();
