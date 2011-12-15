@@ -8,6 +8,7 @@
 #include "PhyEngine.h"
 #include "RenderEngine.h"
 #include "BoxysWorld.h"
+#include "FrameControl.h"
 
 class Game
 {
@@ -38,5 +39,6 @@ class Game
 		PhyEngine			mPhyEngine;
 		RenderEngine		mRenderEngine;
         BoxysWorld          mWorld;
+        FrameControl        mFrameControl;
 };
 

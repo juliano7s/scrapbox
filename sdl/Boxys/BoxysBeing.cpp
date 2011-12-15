@@ -28,6 +28,8 @@ BoxysBeing::~BoxysBeing(void)
 {
 }
 
+/*---- coordinates and dimensions ----*/
+
 void BoxysBeing::SetXY(float x, float y)
 {
     mX = x;
@@ -38,4 +40,16 @@ void BoxysBeing::SetDimensions(int width, int height)
 {
     mWidth = width;
     mHeight = height;
+}
+
+
+/*---- game intelligence ----*/
+
+/**
+ * Updates being data: movement desire, environment awareness,
+ * health, age, hunger, ...
+ **/
+void BoxysBeing::OnLoop()
+{
+
 }
